@@ -1,28 +1,40 @@
-import { useState } from 'react'
+import React from 'react';
+import Hero3D from './components/Hero3D';
+import WorkGrid from './components/WorkGrid';
+import AboutSection from './components/AboutSection';
+import ContactCTA from './components/ContactCTA';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-neutral-950 text-white">
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-neutral-950/70 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <a href="#" className="text-sm font-semibold tracking-tight text-white/90">
+            Art Director • Portfolio
+          </a>
+          <nav className="hidden gap-6 text-sm text-neutral-300 sm:flex">
+            <a href="#work" className="hover:text-white">Lavori</a>
+            <a href="#about" className="hover:text-white">Profilo</a>
+            <a href="#contact" className="hover:text-white">Contatti</a>
+          </nav>
+          <a href="#contact" className="rounded-lg bg-white/10 px-4 py-2 text-sm text-white ring-1 ring-white/15 transition hover:bg-white/20">
+            Parliamo
+          </a>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero3D />
+        <WorkGrid />
+        <AboutSection />
+        <ContactCTA />
+      </main>
+
+      <footer className="border-t border-white/10 bg-neutral-950/90 py-8 text-center text-xs text-neutral-400">
+        © {new Date().getFullYear()} — Portfolio Art Director.
+      </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
